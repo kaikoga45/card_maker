@@ -50,18 +50,18 @@ class CardNotifier extends ChangeNotifier {
   Future<void> _downloadImage(Uint8List image) async {
     final name = _generateRandomNumber();
 
-    await FileSaver.instance
-        .saveFile(name, image, 'png', mimeType: MimeType.PNG);
+    // await FileSaver.instance
+    //     .saveFile(name, image, 'png', mimeType: MimeType.PNG);
 
-    // final temp = image.toList();
-    // final base64data = base64Encode(temp);
-    // final anchor =
-    //     html.AnchorElement(href: 'data:image/jpeg;base64,$base64data')
-    //       ..target = 'blank';
-    // anchor.download = '$name.jpg';
-    // html.document.body!.append(anchor);
-    // anchor.click();
-    // anchor.remove();
+    final temp = image.toList();
+    final base64data = base64Encode(temp);
+    final anchor =
+        html.AnchorElement(href: 'data:image/jpeg;base64,$base64data')
+          ..target = 'blank';
+    anchor.download = '$name.jpg';
+    html.document.body!.append(anchor);
+    anchor.click();
+    anchor.remove();
   }
 
   String _generateRandomNumber() {
