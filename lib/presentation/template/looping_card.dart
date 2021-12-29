@@ -20,7 +20,7 @@ class LoopCard extends StatelessWidget {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            '2.png',
+            'assets/2.png',
           ),
         ),
       ),
@@ -30,7 +30,7 @@ class LoopCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SvgPicture.asset(
-              'fireworks.svg',
+              'assets/fireworks.svg',
               height: 188.46,
             ),
             Text(
@@ -51,7 +51,7 @@ class LoopCard extends StatelessWidget {
                   style: caption_1,
                 ),
                 Image.asset(
-                  'logo.png',
+                  'assets/logo.png',
                   height: 50,
                   width: 50,
                 ),

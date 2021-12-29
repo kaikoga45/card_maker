@@ -19,7 +19,7 @@ class JapanCard extends StatelessWidget {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            '1.png',
+            'assets/1.png',
           ),
         ),
       ),
@@ -58,7 +58,7 @@ class JapanCard extends StatelessWidget {
                   style: caption_1,
                 ),
                 Image.asset(
-                  'logo.png',
+                  'assets/logo.png',
                   height: 50,
                   width: 50,
                 ),

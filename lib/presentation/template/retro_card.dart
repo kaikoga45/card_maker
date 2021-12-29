@@ -19,7 +19,7 @@ class RetroCard extends StatelessWidget {
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-            '3.png',
+            'assets/3.png',
           ),
         ),
       ),
@@ -61,7 +61,7 @@ class RetroCard extends StatelessWidget {
                   style: caption_1,
                 ),
                 Image.asset(
-                  'logo.png',
+                  'assets/logo.png',
                   height: 50,
                   width: 50,
                 ),
