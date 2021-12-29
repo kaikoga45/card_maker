@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:file_saver/file_saver.dart';
 import 'package:flutter/material.dart';
 import 'package:greating_card/common/constants.dart';
 import 'package:screenshot/screenshot.dart';
@@ -32,7 +33,7 @@ class CardNotifier extends ChangeNotifier {
       final image = await _captureWidget(card);
       _state = CardState.download;
       notifyListeners();
-      _downloadImage(image);
+      await _downloadImage(image);
       _state = CardState.standby;
       notifyListeners();
     } catch (e) {
@@ -46,18 +47,21 @@ class CardNotifier extends ChangeNotifier {
     return result;
   }
 
-  void _downloadImage(Uint8List image) {
+  Future<void> _downloadImage(Uint8List image) async {
     final name = _generateRandomNumber();
 
-    final temp = image.toList();
-    final base64data = base64Encode(temp);
-    final anchor =
-        html.AnchorElement(href: 'data:image/jpeg;base64,$base64data')
-          ..target = 'blank';
-    anchor.download = '$name.jpg';
-    html.document.body!.append(anchor);
-    anchor.click();
-    anchor.remove();
+    await FileSaver.instance
+        .saveFile(name, image, 'png', mimeType: MimeType.PNG);
+
+    // final temp = image.toList();
+    // final base64data = base64Encode(temp);
+    // final anchor =
+    //     html.AnchorElement(href: 'data:image/jpeg;base64,$base64data')
+    //       ..target = 'blank';
+    // anchor.download = '$name.jpg';
+    // html.document.body!.append(anchor);
+    // anchor.click();
+    // anchor.remove();
   }
 
   String _generateRandomNumber() {
