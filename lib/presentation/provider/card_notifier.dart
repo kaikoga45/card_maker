@@ -53,13 +53,11 @@ class CardNotifier extends ChangeNotifier {
     final base64data = base64Encode(temp);
     final anchor =
         html.AnchorElement(href: 'data:image/jpeg;base64,$base64data')
-          ..setAttribute('download', 'value')
-          ..style.display = 'none';
+          ..target = 'blank';
     anchor.download = '$name.jpg';
-
-    html.document.body!.children.add(anchor);
+    html.document.body!.append(anchor);
     anchor.click();
-    html.document.body!.children.remove(anchor);
+    anchor.remove();
   }
 
   String _generateRandomNumber() {
