@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   const SizedBox(height: 15),
                   Text(
-                    'V1 Created by @learnwithamaker',
+                    'Created by @learnwithamaker',
                     textAlign: TextAlign.center,
                     style: overline,
                   ),
